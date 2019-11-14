@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountQueries" xml:space="preserve">
+    <value>Account Queries</value>
+  </data>
+  <data name="Accounts" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="CashCommodityQuotes" xml:space="preserve">
+    <value>Cash Commodity Quotes</value>
+  </data>
+  <data name="CashReports" xml:space="preserve">
+    <value>Cash Reports</value>
+  </data>
+  <data name="CashTransactions" xml:space="preserve">
+    <value>Cash Transactions</value>
+  </data>
+  <data name="ClosingTrades" xml:space="preserve">
+    <value>Closing Trades</value>
+  </data>
+  <data name="Companies" xml:space="preserve">
+    <value>Companies</value>
+  </data>
+  <data name="CompanyIndexes" xml:space="preserve">
+    <value>Company Indexes</value>
+  </data>
+  <data name="ContractExchangeInfos" xml:space="preserve">
+    <value>Contract Exchange Information</value>
+  </data>
+  <data name="ContractObsolete" xml:space="preserve">
+    <value>Contract Obsolete</value>
+  </data>
+  <data name="ContractOrderTypes" xml:space="preserve">
+    <value>Contract Order Types</value>
+  </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
+  <data name="CouldNotParse0" xml:space="preserve">
+    <value>Could not parse '{0}'</value>
+  </data>
+  <data name="CurrencyFutureQuotes" xml:space="preserve">
+    <value>Currency Future Quotes</value>
+  </data>
+  <data name="CurrencyQuotes" xml:space="preserve">
+    <value>Currency Quotes</value>
+  </data>
+  <data name="DividendAccruals" xml:space="preserve">
+    <value>Dividend Accruals</value>
+  </data>
+  <data name="DividendRatios" xml:space="preserve">
+    <value>Dividend Ratios</value>
+  </data>
+  <data name="Dividends" xml:space="preserve">
+    <value>Dividends</value>
+  </data>
+  <data name="DividendsAssignedToPositions" xml:space="preserve">
+    <value>Dividends Assigned To Positions</value>
+  </data>
+  <data name="Earnings" xml:space="preserve">
+    <value>Earnings</value>
+  </data>
+  <data name="EnergyStatisticQuotes" xml:space="preserve">
+    <value>Energy Statistic Quotes</value>
+  </data>
+  <data name="EquitySummaries" xml:space="preserve">
+    <value>Equity Summaries</value>
+  </data>
+  <data name="Estimates" xml:space="preserve">
+    <value>Estimates</value>
+  </data>
+  <data name="ExcludedSymbols" xml:space="preserve">
+    <value>Excluded Symbols</value>
+  </data>
+  <data name="FileRecords" xml:space="preserve">
+    <value>FileRecords</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="FinancialStatements" xml:space="preserve">
+    <value>Financial Statements</value>
+  </data>
+  <data name="FlexStatements" xml:space="preserve">
+    <value>Flex Statements</value>
+  </data>
+  <data name="FutureCommodityQuotes" xml:space="preserve">
+    <value>Future Commodity Quotes</value>
+  </data>
+  <data name="GovernmentRateQuotes" xml:space="preserve">
+    <value>Government Rate Quotes</value>
+  </data>
+  <data name="IndexFutureQuotes" xml:space="preserve">
+    <value>Index Future Quotes</value>
+  </data>
+  <data name="Industries" xml:space="preserve">
+    <value>Industries</value>
+  </data>
+  <data name="IndustryDefinitions" xml:space="preserve">
+    <value>Industry Definitions</value>
+  </data>
+  <data name="InterestAccruals" xml:space="preserve">
+    <value>Interest Accruals</value>
+  </data>
+  <data name="InterestFutureQuotes" xml:space="preserve">
+    <value>Interest Future Quotes</value>
+  </data>
+  <data name="MoneyRateQuotes" xml:space="preserve">
+    <value>Money Rate Quotes</value>
+  </data>
+  <data name="NoChangesFound0" xml:space="preserve">
+    <value>No changes found in '{0}'.</value>
+  </data>
+  <data name="NullSymbol" xml:space="preserve">
+    <value>{null}</value>
+  </data>
+  <data name="OpenPositions" xml:space="preserve">
+    <value>Open Positions</value>
+  </data>
+  <data name="OptionValues" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="OrderTypeDefinitions" xml:space="preserve">
+    <value>Order Type Definitions</value>
+  </data>
+  <data name="PositionDividends" xml:space="preserve">
+    <value>Position Dividends</value>
+  </data>
+  <data name="PriceRatios" xml:space="preserve">
+    <value>Contract Price Ratios</value>
+  </data>
+  <data name="Ratios" xml:space="preserve">
+    <value>Contract Ratios</value>
+  </data>
+  <data name="SingleLeastSquaresRegressions" xml:space="preserve">
+    <value>Single Least Squares Regressions</value>
+  </data>
+  <data name="Snapshots" xml:space="preserve">
+    <value>Snapshots</value>
+  </data>
+  <data name="StockIndexHistories" xml:space="preserve">
+    <value>Stock Index Histories</value>
+  </data>
+  <data name="StockMarketCrossingSessions" xml:space="preserve">
+    <value>Stock Market Crossing Sessions</value>
+  </data>
+  <data name="StockMarketDiaries" xml:space="preserve">
+    <value>Stock Market Diaries</value>
+  </data>
+  <data name="StockMarketVolumeBreakdowns" xml:space="preserve">
+    <value>Stock Market Volume Breakdowns</value>
+  </data>
+  <data name="StockMarketVolumes" xml:space="preserve">
+    <value>Stock Market Volumes</value>
+  </data>
+  <data name="StockOptionQuotes" xml:space="preserve">
+    <value>Stock Option Quotes</value>
+  </data>
+  <data name="StockOptions" xml:space="preserve">
+    <value>Stock Options</value>
+  </data>
+  <data name="StockQuotes" xml:space="preserve">
+    <value>Stock Quotes</value>
+  </data>
+  <data name="StockRaters" xml:space="preserve">
+    <value>Stock Raters</value>
+  </data>
+  <data name="StockRatingChanges" xml:space="preserve">
+    <value>Stock Rating Changes</value>
+  </data>
+  <data name="StockRatingMaps" xml:space="preserve">
+    <value>Stock Rating Maps</value>
+  </data>
+  <data name="Stocks" xml:space="preserve">
+    <value>Stocks</value>
+  </data>
+  <data name="StockShortInterestSnapshots" xml:space="preserve">
+    <value>Stock Short Interest Snapshots</value>
+  </data>
+  <data name="StockSplits" xml:space="preserve">
+    <value>Stock Splits</value>
+  </data>
+  <data name="TipsQuotes" xml:space="preserve">
+    <value>TIPS Quotes</value>
+  </data>
+  <data name="TradeOffsets" xml:space="preserve">
+    <value>Trade Offsets</value>
+  </data>
+  <data name="Trades" xml:space="preserve">
+    <value>Trades</value>
+  </data>
+  <data name="UserAccounts" xml:space="preserve">
+    <value>User Accounts</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="ValueChanges" xml:space="preserve">
+    <value>Value Changes</value>
+  </data>
+  <data name="WebsiteHistories" xml:space="preserve">
+    <value>Website Histories</value>
+  </data>
+  <data name="WebsiteHistoryExclusions" xml:space="preserve">
+    <value>Website History Exclusions</value>
+  </data>
+  <data name="Websites" xml:space="preserve">
+    <value>Websites</value>
+  </data>
+</root>

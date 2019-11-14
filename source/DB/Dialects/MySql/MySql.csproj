@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AssemblyName>Jde.DB.Dialects.MySql</AssemblyName>
+    <RootNamespace>Jde.DB.Dialects.MySql</RootNamespace>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<BaseOutputPath>.bin</BaseOutputPath>
+		<BaseIntermediateOutputPath>.bin/obj</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../DB.csproj" />
+    <ProjectReference Include="../../Schema/Schema.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Sql.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Sql.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Sql.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sql.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.18" />
+  </ItemGroup>
+</Project>

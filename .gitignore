@@ -1,0 +1,7 @@
+**/obj/*
+**/bin/*
+source/packages-microsoft-prod.deb
+source/.bin/Debug/netcoreapp3.0/Jde.deps.json
+**/.bin/*
+**/settings.json
+**/tasks.json

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.0</TargetFramework>
+		<AssemblyName>Jde.DB.Schema</AssemblyName>
+		<RootNamespace>Jde.DB.Schema</RootNamespace>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<BaseOutputPath>.bin</BaseOutputPath>
+		<BaseIntermediateOutputPath>.bin/obj</BaseIntermediateOutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="../DB.csproj" />
+		<ProjectReference Include="../../Framework.csproj" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

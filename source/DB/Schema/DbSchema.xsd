@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://jde.data.db" targetNamespace="http://jde.data.db" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="row">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="item">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="column">
+							<xs:complexType>
+								<xs:attribute name="name" type="xs:string" use="required" />
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="value" type="xs:string" use="required" /> 
+					<xs:attribute name="required" type="xs:boolean"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="data">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="row" type="row"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="enumeration">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="item" type="enumeration_item"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+		<xs:attribute name="bit_field" type="xs:boolean" use="optional" />
+		<xs:attribute name="default" type="xs:string" use="optional" />
+		<xs:attribute name="description" type="xs:string" use="required" />
+		<xs:attribute name="is_class" type="xs:boolean" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="enumeration_item">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="alias" type="alias"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="value" type="xs:string" use="required" />
+		<xs:attribute name="description" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="alias">
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="foreign_key">
+		<xs:sequence>
+			<xs:element name="column">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="table" type="table"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="physical" type="locations" use="optional" default="Production" />
+		<xs:attribute name="cardinality" type="cardinality" use="optional" default="child" />
+		<xs:attribute name="primary_member_name" type="xs:string" use="optional"/>
+		<xs:attribute name="exclude_primary" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="primary_collection_type" type="xs:string" use="optional"/>
+		
+		<!--<xs:attribute name="cross_namespace" type="xs:boolean" use="optional"/>-->
+	</xs:complexType>
+	<xs:complexType name="foreign_keys">
+		<xs:sequence>
+			<xs:element name="foreign_key" type="foreign_key" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="index">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="column">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="clustered" type="xs:boolean" use="optional" />
+		<xs:attribute name="primary_key" type="xs:boolean" use="optional" />
+		<xs:attribute name="unique" type="xs:boolean" use="optional" />
+	</xs:complexType>
+	<xs:complexType name="indexes">
+		<xs:sequence>
+			<xs:element name="index" type="index" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="procedure">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="text" type="xs:string" />
+			<xs:element minOccurs="0" name="prefix" type="xs:string" />
+			<xs:element minOccurs="0" name="suffix" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="procedures">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="procedure" type="procedure"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="column">
+		<xs:sequence>
+			<xs:element name="summary" type="xs:string" />
+			<xs:element minOccurs="0" name="enumeration" type="enumeration"/>
+			<xs:element minOccurs="0" name="default" type="default"/>
+			<xs:element minOccurs="0" name="surogate_key" />
+			<xs:element minOccurs="0" name="key" />
+			<xs:element minOccurs="0" name="sequence" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="ordinal" type="xs:unsignedByte" use="required" />
+		<xs:attribute name="type" type="xs:string" use="required" />
+		<xs:attribute name="nullable" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="updateable" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="write" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="max_length" type="xs:unsignedShort" use="optional" />
+		<xs:attribute name="member_name" type="xs:string" use="required" />
+		<xs:attribute name="sequenced" type="xs:boolean" use="optional" default="false" />
+		<xs:attribute name="writable" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="xslType" type="xs:string" use="optional"/>
+		<xs:attribute name="minInclusive" type="xs:int" use="optional"/>
+		<xs:attribute name="maxInclusive" type="xs:int" use="optional"/>
+		<xs:attribute name="virtual" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="create_time" type="xs:boolean" use="optional" default="false"/>
+		<xs:attribute name="edit_time" type="xs:boolean" use="optional" default="false"/> 
+		<xs:attribute name="real_column" type="xs:boolean" use="optional" default="true"/>
+		<xs:attribute name="serialization" type="serialization" use="optional" default="attribute" />
+	</xs:complexType>
+  <xs:simpleType name="locations">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Production" />
+      <xs:enumeration value="Archive" />
+      <xs:enumeration value="ProductionArc" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="default_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="UtcDate" />
+      <xs:enumeration value="NewGuid" />
+      <xs:enumeration value="Date" />
+			<xs:enumeration value="UserName" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="cardinality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="link" /> <!--0:0 person:parking space-->
+      <xs:enumeration value="sub_type" /> <!--1:0 person:programmer-->
+      <xs:enumeration value="physical_segment" /> <!--1:1 person:dna pattern-->
+      <xs:enumeration value="possession" /> <!--0:M person:phone#-->
+      <xs:enumeration value="child" /> <!--1:M user:user group-->
+      <xs:enumeration value="characteristic" /><!--1:M user:user group-->
+      <xs:enumeration value="paradox" /><!--1:M on both sides citizenship:person-->
+      <xs:enumeration value="association" /><!--M:M people:Employers with no link-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="serialization">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="attribute" />
+      <xs:enumeration value="element" />
+      <xs:enumeration value="text" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="default">
+		<xs:attribute name="type" type="default_type" use="optional"/>
+		<xs:attribute name="location" type="locations" use="optional"/>
+		<xs:attribute name="text" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="table">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element minOccurs="0" name="summary" type="xs:string" />
+				<xs:element name="enumeration" type="enumeration"/>
+				<xs:element minOccurs="0" name="columns">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:choice maxOccurs="unbounded">
+								<xs:element maxOccurs="unbounded" name="column"/>
+								<xs:element name="enumeration">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element maxOccurs="unbounded" name="item">
+												<xs:complexType>
+													<xs:attribute name="name" type="xs:string" use="required" />
+													<xs:attribute name="value" type="xs:string" use="required" />
+													<xs:attribute name="description" type="xs:string" use="required" />
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="bit_field" type="xs:boolean" use="required" />
+										<xs:attribute name="description" type="xs:string" use="required" />
+									</xs:complexType>
+								</xs:element>
+							</xs:choice>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0" name="indexes" type="indexes"/>
+				<xs:element minOccurs="0" name="foreign_keys" type="foreign_keys"/>
+				<xs:element minOccurs="0" name="data" type="data"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="class_name" type="xs:string" use="optional" />
+		<xs:attribute name="default_display" type="xs:string" use="optional" />
+		<xs:attribute name="deletable" type="xs:boolean" use="optional" default="false" />
+		<xs:attribute name="sealed" type="xs:boolean" use="optional" default="true" />
+    <xs:attribute name="namespace" type="xs:string" use="optional"/>
+		<xs:attribute name="base_class" type="xs:string" use="optional"/>
+  </xs:complexType>
+	<xs:complexType name="schema_defaults">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="1" name="table" type="table"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="tables">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="table" type="table"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="schema">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="schema_defaults" type="schema_defaults"/>
+			<xs:element minOccurs="0" name="tables" type="tables"/>
+			<xs:element minOccurs="0" name="procedures" type="procedures"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="major_version" type="xs:unsignedByte" use="required" />
+		<xs:attribute name="minor_version" type="xs:unsignedByte" use="required" />
+	</xs:complexType>
+	<xs:element name="schema" type="schema"/>
+</xs:schema>
