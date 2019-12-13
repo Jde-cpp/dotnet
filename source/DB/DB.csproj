@@ -4,7 +4,7 @@
 		<TargetFramework>netcoreapp3.0</TargetFramework>
 		<AssemblyName>Jde.DB</AssemblyName>
 		<RootNamespace>Jde.DB</RootNamespace>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<!-- <GenerateAssemblyInfo>false</GenerateAssemblyInfo> -->
 		<DefaultItemExcludes>$(DefaultItemExcludes);Dialects/**/*;Schema/**/*</DefaultItemExcludes>
 		<!-- <BaseOutputPath>.bin</BaseOutputPath>
 		<BaseIntermediateOutputPath>.bin/obj</BaseIntermediateOutputPath> -->

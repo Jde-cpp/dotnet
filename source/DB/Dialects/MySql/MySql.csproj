@@ -3,7 +3,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>Jde.DB.Dialects.MySql</AssemblyName>
     <RootNamespace>Jde.DB.Dialects.MySql</RootNamespace>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<!-- <GenerateAssemblyInfo>false</GenerateAssemblyInfo> -->
 		<BaseOutputPath>.bin</BaseOutputPath>
 		<BaseIntermediateOutputPath>.bin/obj</BaseIntermediateOutputPath>
   </PropertyGroup>

@@ -4,7 +4,7 @@
 		<TargetFramework>netcoreapp3.0</TargetFramework>
 		<AssemblyName>Jde.DB.Schema</AssemblyName>
 		<RootNamespace>Jde.DB.Schema</RootNamespace>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<!-- <GenerateAssemblyInfo>false</GenerateAssemblyInfo> -->
 		<BaseOutputPath>.bin</BaseOutputPath>
 		<BaseIntermediateOutputPath>.bin/obj</BaseIntermediateOutputPath>
 	</PropertyGroup>

@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>Jde</AssemblyName>
     <RootNamespace>Jde</RootNamespace>
-	 <DefaultItemExcludes>$(DefaultItemExcludes);DB/**/*;</DefaultItemExcludes>
+	 <DefaultItemExcludes>$(DefaultItemExcludes);DB/**/*;ConsoleApp/*</DefaultItemExcludes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

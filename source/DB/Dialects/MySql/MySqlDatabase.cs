@@ -55,7 +55,8 @@ namespace Jde.DB.Dialects
 			dbCommand.Transaction = t;
 			if( dbCommand.Connection.State!=ConnectionState.Open )
 				dbCommand.Connection.Open();
-			return dbCommand.ExecuteScalar() as long?;
+			var value = dbCommand.ExecuteScalar();
+			return value as long?;
 		}
 
 		public override int ExecuteNonQuery( DbCommand dbCommand, DbTransaction t=null )
