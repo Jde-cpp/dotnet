@@ -38,7 +38,7 @@ namespace Jde.DB.Schema
 			var schema = Xml.XmlSerialization<DB.Schema.DataSchema>.ReadFromFile( schemaXml );
 			schema.Tables.ForEach( table => table.Data = new PersistentData() );
 			if( !string.IsNullOrEmpty(dataXml) )
-			{ 
+			{
 				var data = Xml.XmlSerialization<DB.Schema.DataSchema>.ReadFromFile( dataXml );
 				foreach( var table in data.Tables )
 				{
@@ -94,7 +94,7 @@ namespace Jde.DB.Schema
 					throw new ApplicationException( string.Format("Could not find table '{0}' to add data to.", table.Name) );
 				schema.Tables[table.Name].SetStoriedProcs( table.StoredProcs );
 			}
-*/ 
+*/
 			XmlDocument procDoc = new XmlDocument();
 			procDoc.LoadXml( storedProcXml );
 			XmlNamespaceManager namespaceManager = new XmlNamespaceManager( procDoc.NameTable );
@@ -148,7 +148,7 @@ namespace Jde.DB.Schema
 			{
 //				throw new ApplicationException( string.Format("Schema '{0}' does not have a required version.", Name) );
 				string[] versions = version.Split( '.' );
-				
+
 				if( versions.Length<2 )
 					throw new InvalidOperationException( string.Format(CultureInfo.InvariantCulture, "Schema '{0}' version ''{1}' does not have 2 parts.", Name) );
 				MajorVersion = int.Parse( versions[0], CultureInfo.InvariantCulture );
@@ -295,7 +295,7 @@ namespace Jde.DB.Schema
 			Collection<Index> existingIndexes = new Collection<Index>();
 			foreach( Table table in Tables )
 			{
-				foreach( Index index in table.Indexes )
+				foreach( var index in table.Indexes )
 				{
 					if( indexName==index.Name )
 						existingIndexes.Add(index);
@@ -410,7 +410,7 @@ namespace Jde.DB.Schema
 		[XmlAttribute("id")] public string Name{ get; set;}
 		#region Tables
 		[XmlArray( "tables" )]
-		[XmlArrayItem( "table", typeof( Table ) )] 
+		[XmlArrayItem( "table", typeof( Table ) )]
 		public HashSet<Table> Tables{get;private set; } = new HashSet<Table>();
 		public void SetTables( HashSet<Table> tables )
 		{

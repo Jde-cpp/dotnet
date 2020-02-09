@@ -53,7 +53,7 @@ namespace Jde.DB.Dialects
 						column.Default = new Schema.Default( Schema.DefaultType.Date );
 					else if( string.Compare(dflt, "(user_name())", StringComparison.OrdinalIgnoreCase)==0 )
 						column.Default = new Schema.Default( Schema.DefaultType.UserName );
-					else 
+					else
 						column.Default = new Schema.Default( dflt );
 				}
 		      column.Nullable=(string)row["IS_NULLABLE"]=="YES";
@@ -97,7 +97,7 @@ namespace Jde.DB.Dialects
 		      table.Indexes.Add( index );
 		   }
 
-		   var fkDataSet=ds.LoadDataSet( string.Format(Sql.ForeignKeys, schemaName), "fk" );  
+		   var fkDataSet=ds.LoadDataSet( string.Format(MySqlStrings.ForeignKeys, schemaName), "fk" );
 		   Schema.Table pkTable = null;
 		   var fkColumns = new Collection<Schema.Column>();
 		   string currentName = null;
@@ -179,7 +179,7 @@ namespace Jde.DB.Dialects
 		         throw new InvalidOperationException( string.Format(CultureInfo.InvariantCulture, "Could not find column '{0}' for table '{1}' for index '{2}'.", columnName, currentTableName, indexName) );
 				if( foundIndex.PrimaryKey )
 					column.SurrogateKey = new DB.Schema.SurrogateKey();
-		      foundIndex.Columns.Add( column );	
+		      foundIndex.Columns.Add( column );
 		   }
 
 		   return indexes;
@@ -188,7 +188,7 @@ namespace Jde.DB.Dialects
 		static string GetColumnSql( string tableName, string catalog )
 		{
 			string tableQuery = string.IsNullOrEmpty(tableName) ? string.Empty : string.Format( CultureInfo.InvariantCulture, "\tand\tt.TABLE_NAME='{0}'\n", tableName );
-			return string.Format( CultureInfo.InvariantCulture, Sql.Columns, catalog, tableQuery );
+			return string.Format( MySqlStrings.Columns, catalog, tableQuery );
 		}
 
 		static DataType TryGetDataType( string typeName )
@@ -202,7 +202,7 @@ namespace Jde.DB.Dialects
 				type=DataType.Float;
 			else if(typeName=="real")
 				type=DataType.SmallFloat;
-			else if( typeName=="int" || typeName=="int(11)" )
+			else if( typeName=="int" || typeName=="int(11)" || typeName=="int unsigned" )
 				type = DataType.Int;
 			else if( typeName=="int(10) unsigned" )
 				type = DataType.UInt;
@@ -218,7 +218,7 @@ namespace Jde.DB.Dialects
 				type = DataType.UInt16;
 			else if (typeName.StartsWith("smallint"))
 				type=DataType.Int16;
-			else if (typeName == "tinyint(3) unsigned")
+			else if( typeName == "tinyint(3) unsigned" || typeName == "tinyint unsigned" )
 				type = DataType.UInt8;
 //			else if (typeName.StartsWith("tinyint unsigned"))
 //				type = DataType.UInt16;
