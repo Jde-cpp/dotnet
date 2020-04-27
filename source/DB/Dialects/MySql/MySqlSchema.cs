@@ -202,9 +202,9 @@ namespace Jde.DB.Dialects
 				type=DataType.Float;
 			else if(typeName=="real")
 				type=DataType.SmallFloat;
-			else if( typeName=="int" || typeName=="int(11)" || typeName=="int unsigned" )
+			else if( typeName=="int" || typeName=="int(11)" )
 				type = DataType.Int;
-			else if( typeName=="int(10) unsigned" )
+			else if( typeName=="int(10) unsigned" || typeName=="int unsigned" )
 				type = DataType.UInt;
 			else if( typeName=="bigint(21) unsigned" || typeName=="bigint(20) unsigned" )
 				type = DataType.ULong;

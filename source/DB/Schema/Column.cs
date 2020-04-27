@@ -31,7 +31,7 @@ namespace Jde.DB.Schema
 
 			if( !string.IsNullOrEmpty(Summary) )
 				text.AppendFormat( CultureInfo.CurrentCulture, " - {0}", Summary );
-			
+
 			return text.ToString();
 		}
 		#endregion
@@ -69,13 +69,13 @@ namespace Jde.DB.Schema
 			value = reader.GetAttribute( "max_length" );
 			if( !string.IsNullOrEmpty(value) )
 				MaxLength = (int?)int.Parse( value );
-			
+
 			MemberName = reader.GetAttribute( "member_name" );
 
 			value = reader.GetAttribute( "minInclusive" );
 			if( !string.IsNullOrEmpty(value) )
 				MinInclusive = (int?)int.Parse( value );
-			
+
 			Name = reader.GetAttribute( "name" );
 
 			value = reader.GetAttribute( "nullable" );
@@ -232,8 +232,10 @@ namespace Jde.DB.Schema
 		public string AlterStatement( SqlSyntax sql, Schema.Column appColumn, bool unicode )
 		{
 			StringBuilder statement = null;
-			if( sql.GetTypeString( DataType, false, unicode, MaxLength, Precision, Scale )!=sql.GetTypeString(appColumn.DataType, unicode, false, appColumn.MaxLength ?? 256 )
-				|| (Nullable && !appColumn.Nullable) 
+			var thisStr = sql.GetTypeString( DataType, false, unicode, MaxLength, Precision, Scale );
+			var appStr = sql.GetTypeString(appColumn.DataType, unicode, false, appColumn.MaxLength ?? 256 );
+			if( thisStr!=appStr
+				|| (Nullable && !appColumn.Nullable)
 				|| (!Nullable && appColumn.Nullable) )
 			{
 				statement = new StringBuilder( string.Format(CultureInfo.InvariantCulture, "alter table {0} {1} {2} ", appColumn.ParentTable.Name, sql.AlterColumnPrefix, appColumn.Name) );
@@ -257,7 +259,7 @@ namespace Jde.DB.Schema
 			}
 			return changeSql;
 		}
-		#endregion 
+		#endregion
 		#region IsRowGuid
 		public bool IsRowGuid()
 		{
@@ -311,7 +313,7 @@ namespace Jde.DB.Schema
 		}
 
 		public bool IsCreateTime{get;set;}
-		
+
 		public bool IsEditTime{get;set;}
 
 		bool _nullable = true;
@@ -467,7 +469,7 @@ namespace Jde.DB.Schema
 		{
 			get{ return _parentTable;}
 			set
-			{ 
+			{
 				_parentTable=value;
 				if(Sequence != null && Sequence.Table == null)
 					Sequence.Table = _parentTable;
