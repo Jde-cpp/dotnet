@@ -5,3 +5,4 @@ source/.bin/Debug/netcoreapp3.0/Jde.deps.json
 **/.bin/*
 **/settings.json
 **/tasks.json
+source/.vscode/launch.json
